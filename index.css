@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    background: #F0F0F0;
+}
+
+body, input, h1, h2 {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#msgLabel {
+    color: crimson;
+    font-weight: bold;
+}
+
+.center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+}
+
+.card {
+    box-shadow: 0 0 0 1px lightgray;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+input, button {
+    padding: 8px;
+    border-radius: 4px;
+    border: solid 1px lightgray;
+    margin: 2px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+input[type='button'], button {
+    background: #3742fa;
+    color: white;
+    cursor: pointer;
+    border: none;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+
+.login-div {
+
+    width: 300px;
+    height: 220px;
+    
+    background-color: white;
+    
+    
+}
+
+@media (max-width: 780px) {
+    .login-div {
+        width: 100%;
+        box-shadow: none;
+    }
+    
+}

@@ -1,0 +1,26 @@
+#sudokuTable {
+
+    border-collapse: collapse;
+}
+
+#sudokuTable,
+#sudokuTable tr,
+#sudokuTable td {
+    border: solid 1px lightgray;
+
+}
+
+#sudokuTable td {
+    width: 38px;
+    height: 38px;
+    text-align: center;
+}
+#sudokuTable input {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 12px;
+}
