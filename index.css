@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
-
-//123
-
 body {
     background: #F0F0F0;
 }
@@ -48,21 +44,18 @@ input[type='button'], button {
     min-height: 32px;
 }
 
-
 .login-div {
-
     width: 300px;
     height: 220px;
-    
     background-color: white;
-    
-    
 }
 
 @media (max-width: 780px) {
-    .login-div {
+    .center {
         width: 100%;
         box-shadow: none;
     }
-    
+    input[type='button'], button {
+        width: 98%;
+    }
 }
