@@ -49,6 +49,9 @@ function generateRandomPositions(positionsCount) {
 
 //#endregion
 
+
+//TODO validator is not working currectly #20 please fix this @edanick
+
 function isSudokuBoardValid(board) {
 
 
