@@ -25,6 +25,7 @@ body, input, h1, h2 {
     box-shadow: 0 0 0 1px lightgray;
     border-radius: 4px;
     padding: 8px;
+    background: white;
 }
 
 input, button {

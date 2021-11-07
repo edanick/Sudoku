@@ -49,14 +49,16 @@ function generateRandomPositions(positionsCount) {
 
 //#endregion
 
-
-//TODO validator is not working currectly #20 please fix this @edanick
-
 function isSudokuBoardValid(board) {
 
 
+    let valid = true;
+
+    let invalidPositions = [];
+
+
     if (board.length == 0) {
-        return false;
+        valid = false;
     }
 
     for (let y = 0; y < board.length; y++) {
@@ -72,9 +74,14 @@ function isSudokuBoardValid(board) {
 
                     if (!(y == y2 && x == x2)) {
 
-                        if (tile == ptile && (x == x2 || y == y2) && !(tile > 0 && tile < 10)) {
+                        if ((tile == ptile && (x == x2 || y == y2)) && !(tile > 0 && tile < 10)) {
 
-                            return false;
+                           
+                            valid = false;
+                        }
+
+                        if (tile == ptile && (x == x2 || y == y2)) {
+                            invalidPositions.push([y, x]);
                         }
 
                     }
@@ -88,7 +95,7 @@ function isSudokuBoardValid(board) {
 
     }
 
-    return true;
+    return { valid: valid, invalidPositions: invalidPositions };
 }
 
 function manipulateSudokuBoard(board) {
@@ -101,7 +108,7 @@ function manipulateSudokuBoard(board) {
 
             board[y][x] += add;
             if (board[y][x] > 9) {
-                board[y][x]  -= 9;
+                board[y][x] -= 9;
             }
         }
 
@@ -117,19 +124,19 @@ function generateNewBoard(tilesCount, size) {
 
     let original = [
 
-        [4,3,5,2,6,9,7,8,1],
-        [6,8,2,5,7,1,4,9,3],
-        [1,9,7,8,3,4,5,6,2],
-        [8,2,6,1,9,5,3,4,7],
-        [3,7,4,6,8,2,9,1,5],
-        [9,5,1,7,4,3,6,2,8],
-        [5,1,9,3,2,6,8,7,4],
-        [2,4,8,9,5,7,1,3,6],
-        [7,6,3,4,1,8,2,5,9]
-    
+        [4, 3, 5, 2, 6, 9, 7, 8, 1],
+        [6, 8, 2, 5, 7, 1, 4, 9, 3],
+        [1, 9, 7, 8, 3, 4, 5, 6, 2],
+        [8, 2, 6, 1, 9, 5, 3, 4, 7],
+        [3, 7, 4, 6, 8, 2, 9, 1, 5],
+        [9, 5, 1, 7, 4, 3, 6, 2, 8],
+        [5, 1, 9, 3, 2, 6, 8, 7, 4],
+        [2, 4, 8, 9, 5, 7, 1, 3, 6],
+        [7, 6, 3, 4, 1, 8, 2, 5, 9]
+
     ];
 
-    
+
     manipulateSudokuBoard(original);
 
 
@@ -145,15 +152,15 @@ function generateNewBoard(tilesCount, size) {
         }
     }
 
-  
+
 
 
     for (let i = 0; i < randomTilesPoses.length; i++) {
-       
+
         let pos = randomTilesPoses[i];
-   
+
         newBoard[pos[0]][pos[1]] = original[pos[0]][pos[1]];
-     
+
     }
 
 

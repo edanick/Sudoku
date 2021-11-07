@@ -76,6 +76,46 @@
 
         //#region generate board
 
+        function tileOnKeyUp() {
+            this.value = this.value.toString().split('')[0];
+
+            let board = [];
+            for (let y = 0; y < inputsMatrix.length; y++) {
+                board.push([]);
+                for (let x = 0; x < inputsMatrix[y].length; x++) {
+
+                    let tile = parseInt(inputsMatrix[y][x].value);
+
+                    board[y].push(!tile ? 0 : tile);
+                }
+            }
+
+
+            let validator = isSudokuBoardValid(board);
+
+            console.clear();
+
+            for (let y = 0; y < inputsMatrix.length; y++) {
+                for (let x = 0; x < inputsMatrix[y].length; x++) {
+                    let input = inputsMatrix[y][x];
+                    input.parentElement.style.background = "white";
+                }
+            }
+
+
+            for (let i  = 0; i < validator.invalidPositions.length; i++) {
+                let pos = validator.invalidPositions[i];
+                let input = inputsMatrix[pos[0]][pos[1]];
+                
+              
+                if (!input.disabled && input.value) {
+                    input.parentElement.style.background = 'crimson';   
+                }
+            
+            }
+            
+        }
+
 
         function generateBoard() {
 
@@ -102,6 +142,13 @@
                 for (let x = 0; x < size; x++) {
                     let td = document.createElement('td');
                     let input = document.createElement('input');
+
+                    input.onkeyup = tileOnKeyUp;
+
+                    input.type = 'number';
+                    input.style.appearance = 'none';
+                    input.min = 1;
+                    input.max = 9;
 
 
 
@@ -138,6 +185,8 @@
 
 
 
+
+
         finishButton.onclick = (e) => {
 
             console.clear();
@@ -154,11 +203,13 @@
             }
 
 
-            console.log(isSudokuBoardValid(board));
+            let validator = isSudokuBoardValid(board);
+
+            console.log();
 
             msgDiv.style.display = 'block';
 
-            let valid = isSudokuBoardValid(board);
+            let valid = validator.valid;
 
             var audio = new Audio(`sounds/${valid ? 'success' : 'fail'}.mp3`);
 
@@ -201,6 +252,8 @@
         button1.onclick = changeDifficulty;
         button2.onclick = changeDifficulty;
         button3.onclick = changeDifficulty;
+
+        
 
 
         //#endregion
