@@ -1,2 +1,2 @@
 # Sudoku
-A studned project
+A student project
