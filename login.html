@@ -11,18 +11,29 @@
 <body>
 
 
-    <div class="center login-div card">
-        <h1 style="text-align: center;">Sudoku</h1>
-        <input type="text" id="usernameInput" style="width: 100%;" placeholder="Username">
-        <br>
-        <input type="password" id="passwordInput" style="width: 100%;" placeholder="Password">
-        <br>
-        <div id="msgDiv" style="display: none;">
-            <label id="msgLabel"></label>
+    
+
+
+    <div class="login-div">
+        <div id="insideLogin">
+            <img src="/Sudoku-main/images/LogoBig.png" alt="Logo" style="margin-bottom: 7px; margin-top: 14px;" id="logo">
+            
+            <input type="text" id="usernameInput" style="width: 100%;" placeholder="Username">
             <br>
+            <input type="password" id="passwordInput" style="width: 100%; margin-top: 17px;" placeholder="Password">
+            <br>
+            <input type="button" value="Enter" id="enterButton" style="float: right;  margin-top: 17px">
+            <br>
+                <div id="validationAlert" style="display: none;">
+                    <label id="msgLabel"></label>
+                </div>
         </div>
-        <input type="button" value="Enter" id="enterButton" style="float: right;">
+
+    
     </div>
+
+
+   
 
 
 
@@ -39,7 +50,7 @@
                     window.location.href = "difficulty.html";
                 } else {
                     msgLabel.innerHTML = 'Wrong username or password.'
-                    msgDiv.style.display = "block";
+                    validationAlert.style.display = "block";
                 }
 
             
@@ -55,6 +66,16 @@
 
 
     </script>
+
+
+<style>
+    body {
+      background-image: url('/Sudoku-main/images/bgSDK2.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: auto;
+    }
+    </style>
 
 </body>
 

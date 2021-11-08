@@ -4,7 +4,8 @@
 }
 
 #sudokuTable, #sudokuTable tr, #sudokuTable td {
-    border: solid 1px lightgray;
+    border: solid 1px rgb(223, 222, 222);
+    
 }
 
 #sudokuTable td {
@@ -26,4 +27,26 @@
 #sudokuTable input::-webkit-outer-spin-button,
 #sudokuTable input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+
+#goodLuck
+{
+
+
+font-weight: bold;
+font-size: 30px;
+color: white;
+
+
+
+
+}
+
+h1
+{
+
+font-size: 18px;
+color: white;
+
+
 }

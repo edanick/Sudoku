@@ -11,12 +11,17 @@
 
 <body>
 
-
-
   
     <div style="text-align: center;">
-        <h1>Good Luck</h1>
+        <br>
+        <img src="/Sudoku-main/images/Logo.png" alt="Logo" style="margin-bottom: 7px; margin-top: 14px;">
+        <br>
+        <br>
+
+        <div id="goodLuck">Good Luck</div>
+        <br>
         <table id="sudokuTable" style="display: inline-block;"></table>
+        <br>
         <br>
 
         <input type="button" value="Finish" id="finishButton">
@@ -27,13 +32,13 @@
 
 
   
-    <div id="msgDiv" class="center card" style="display: none; width: 200px; height: 70px; text-align: center; top: 30%; background: white;">
+    <div id="msgDiv" class="center card" style="display: none; width: 200px;  text-align: center; top: 30%;">
         <label id="msgLabel"></label>
         <br>
-        <input type="button" value="OK" id="okButton">
+        <input type="button" value="OK" id="okButton" style="margin-top: 15px;">
     </div>
 
-    <div id="difDiv" class="center card" style="display: none; width: 200px; height: 90px; text-align: center; top: 20%; background: white;">
+    <div id="difDiv" class="center card" style="display: none; text-align: center; top: 20%; ">
         <h1>Choose Difficulty</h1>
         <input type="button" value="1" id="button1">
         <input type="button" value="2" id="button2">
@@ -107,9 +112,17 @@
                 let pos = validator.invalidPositions[i];
                 let input = inputsMatrix[pos[0]][pos[1]];
                 
+                if (input.parentElement.style.background = "white"){
+                    input.style.color = "rgb(77, 77, 77)" ;
+                    }
               
                 if (!input.disabled && input.value) {
-                    input.parentElement.style.background = 'crimson';   
+                    input.parentElement.style.background = '#B6170F'; 
+
+                    if (input.parentElement.style.background = '#B6170F'){
+                    input.style.color = "white" ;
+                    }
+                    
                 }
             
             }
@@ -216,8 +229,8 @@
             audio.volume = 0.2;
             audio.play();
 
-            msgLabel.innerHTML = (valid ? 'Congratulations you have solved the board' : "You didn't complete the board");
-            msgLabel.style.color = valid ? 'green' : 'crimson';
+            msgLabel.innerHTML = (valid ? 'Board solved!' : "Board invalid");
+            msgLabel.style.color = valid ? 'gray' : '#B6170F';
 
         }
 
@@ -260,7 +273,14 @@
 
 
     </script>
-
+    <style>
+        body {
+          background-image: url('/Sudoku-main/images/bgSDK2.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: auto;
+        }
+        </style>
 </body>
 
 </html>
