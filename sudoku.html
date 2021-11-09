@@ -66,8 +66,13 @@
 
         //#endregion
 
-        //#region global
+    
         let difficulty = parseInt(getParameterByName('difficulty'));
+
+
+        if (!difficulty) {
+            window.location.href = 'login.html';
+        } else {
 
         const size = 9;
 
@@ -76,7 +81,7 @@
         generateBoard();
 
 
-        //#endregion
+       
 
 
         //#region generate board
@@ -335,7 +340,7 @@
 
         //#endregion
 
-
+    }
     </script>
     <style>
         body {
