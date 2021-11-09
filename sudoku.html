@@ -104,7 +104,10 @@
             //#region generate board
 
             function tileOnKeyUp() {
-                this.value = this.value.toString().split('')[0];
+
+                if (!mobileMode) {
+                    this.value = this.value.toString().split('')[0];
+                }
 
                 let board = [];
                 for (let y = 0; y < inputsMatrix.length; y++) {
@@ -227,6 +230,7 @@
             function numberButtonClick() {
 
                 lastSelectedInput.value = this.value;
+                tileOnKeyUp();
             }
 
             function inputOnClick() {
