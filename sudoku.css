@@ -51,6 +51,14 @@ color: white;
 
 }
 
+#smallLogo
+{
+
+    margin-bottom: 7px;
+    margin-top: 14px;
+
+}
+
 #numbersDiv > input[type="button"] {
     width: 16px;
     height: 16px;
@@ -71,6 +79,14 @@ color: white;
  
     #numbersDiv {
         display: inline-block;
+    }
+
+    #smallLogo
+    {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        max-width: 20%;
+        
     }
 
 
