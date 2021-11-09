@@ -73,5 +73,12 @@ color: white;
         display: block;
     }
 
+    #smallLogo
+    {
+
+        max-width: 20%;
+
+    }
+
 
 }
