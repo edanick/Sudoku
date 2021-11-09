@@ -50,3 +50,19 @@ color: white;
 
 
 }
+
+#numbersDiv > input[type="button"] {
+    width: 64px;
+    height: 64px;
+}
+
+#numbersDiv {
+    display:  none;
+}
+
+@media (max-width: 780px) {
+ 
+    #numbersDiv {
+        display: block;
+    }
+}
