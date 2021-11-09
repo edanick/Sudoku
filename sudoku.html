@@ -322,6 +322,8 @@
         function changeDifficulty() {
             difficulty = this.value;
 
+            history.replaceState(null, null, `sudoku.html?difficulty=${difficulty}`);
+
             const size = 9;
 
             randomTilesCount = Math.floor((size * size) * ((3 - difficulty + 1) * 0.25));
