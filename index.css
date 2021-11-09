@@ -17,7 +17,7 @@ body, input, h1, h2 {
 }
 
 #msgLabel {
-    color: #b60f1d;
+    color: #B6170F;
     font-weight: bold;
 }
 
@@ -122,6 +122,7 @@ input[type='button'], button {
 #msgLabel
 {
     line-height: 33px;
+    margin-left: 40px;
     border: none;
     
 
