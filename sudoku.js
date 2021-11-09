@@ -5,6 +5,20 @@ function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function arrayItemCount(arr, item) {
+
+
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == item) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
 function arraysEqual(arr1, arr2) {
 
     if (arr1.length != arr2.length) {
@@ -56,46 +70,95 @@ function isSudokuBoardValid(board) {
 
     let invalidPositions = [];
 
+    let groupFlags = [];
+
 
     if (board.length == 0) {
         valid = false;
     }
 
-    for (let y = 0; y < board.length; y++) {
-        for (let x = 0; x < board[y].length; x++) {
-
-            let tile = board[y][x];
+    for (let gy = 0; gy < (board.length / 3); gy++) {
 
 
-            for (let y2 = 0; y2 < board.length; y2++) {
-                for (let x2 = 0; x2 < board[y2].length; x2++) {
-                    let ptile = board[y2][x2];
+        groupFlags.push([]);
+
+        for (let gx = 0; gx < (board[gy].length / 3); gx++) {
 
 
-                    if (!(y == y2 && x == x2)) {
+            let groupCompleted = true;
+            let groupValid = true;
 
-                        if ((tile == ptile && (x == x2 || y == y2)) && !(tile > 0 && tile < 10)) {
+            let group = [];
 
-                           
-                            valid = false;
+            for (let iy = 0; iy < (board.length / 3); iy++) {
+
+                for (let ix = 0; ix < (board[gy].length / 3); ix++) {
+
+                    let y = gy * 3 + iy;
+                    let x = gx * 3 + ix;
+
+                    group.push(board[y][x]);
+
+                }
+            }
+
+            for (let iy = 0; iy < (board.length / 3); iy++) {
+
+                for (let ix = 0; ix < (board[gy].length / 3); ix++) {
+
+                    let y = gy * 3 + iy;
+                    let x = gx * 3 + ix;
+
+                    let tile = board[y][x];
+
+                    if (tile == 0) {
+                        groupCompleted = false;
+                    } else {
+                        if (arrayItemCount(group, tile) > 1) {
+                           invalidPositions.push([y, x]);
                         }
+                    }
 
-                        if (tile == ptile && (x == x2 || y == y2)) {
-                            invalidPositions.push([y, x]);
+                    for (let y2 = 0; y2 < board.length; y2++) {
+                        for (let x2 = 0; x2 < board[y2].length; x2++) {
+                            let ptile = board[y2][x2];
+
+
+                            if (!(y == y2 && x == x2)) {
+
+                                if ((tile == ptile && (x == x2 || y == y2)) || !(tile > 0 && tile < 10)) {
+
+                                    valid = false;
+                                }
+
+                                if (tile == ptile && (x == x2 || y == y2)) {
+                                    groupValid = false;
+                                    let pos = [y, x];
+                                    if (!matrixIncludesArray(invalidPositions, pos)) {
+                                        invalidPositions.push(pos);
+                                    }
+                                }
+
+                            }
+
+
                         }
 
                     }
-
 
                 }
 
             }
 
+            groupFlags[gy].push({ groupCompleted: groupCompleted, groupValid: groupValid });
+
+
+
         }
 
     }
 
-    return { valid: valid, invalidPositions: invalidPositions };
+    return { valid: valid, invalidPositions: invalidPositions, groupFlags: groupFlags };
 }
 
 function manipulateSudokuBoard(board) {
