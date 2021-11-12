@@ -119,19 +119,19 @@ function isSudokuBoardValid(board) {
                         }
                     }
 
-                    for (let y2 = 0; y2 < board.length; y2++) {
-                        for (let x2 = 0; x2 < board[y2].length; x2++) {
-                            let ptile = board[y2][x2];
+                    for (let py = 0; py < board.length; py++) {
+                        for (let px = 0; px < board[py].length; px++) {
+                            let ptile = board[py][px];
 
 
-                            if (!(y == y2 && x == x2)) {
+                            if (!(y == py && x == px)) {
 
-                                if ((tile == ptile && (x == x2 || y == y2)) || !(tile > 0 && tile < 10)) {
+                                if ((tile == ptile && (x == px || y == py)) || !(tile > 0 && tile < 10)) {
 
                                     valid = false;
                                 }
 
-                                if (tile == ptile && (x == x2 || y == y2)) {
+                                if (tile == ptile && (x == px || y == py)) {
                                     groupValid = false;
                                     let pos = [y, x];
                                     if (!matrixIncludesArray(invalidPositions, pos)) {
