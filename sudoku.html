@@ -69,7 +69,7 @@
     <script>
 
 
-        let difficulty = parseInt(new URLSearchParams(window.location.search).get('difficulty'));
+        let difficulty = parseInt(new URLSearchParams(new URL(window.location.search)).search.get('difficulty'));
 
 
         let mobileMode = window.innerWidth <= 780;
