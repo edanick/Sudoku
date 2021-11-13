@@ -363,9 +363,13 @@
                 difficulty = this.value;
 
 
-                window.location.href = window.location.href.replace(/difficulty=\d+/, `difficulty=${difficulty}`);
-                //history.replaceState(null, null, `sudoku.html?difficulty=${difficulty}`);
-
+                if (isGithubPreview) {
+                    window.location.href = window.location.href.replace(/difficulty=\d+/, `difficulty=${difficulty}`);
+                } else {
+                    history.replaceState(null, null, `sudoku.html?difficulty=${difficulty}`);
+                }
+                
+                
                 const size = 9;
 
                 randomTilesCount = Math.floor((size * size) * ((3 - difficulty + 1) * 0.25));
