@@ -83,7 +83,7 @@
 
             const size = 9;
 
-            let randomTilesCount = Math.floor((size * size) * ((3 - difficulty + 1) * 0.25));
+            let tilesCount = Math.floor((size * size) * ((3 - difficulty + 1) * 0.25));
             let inputsMatrix = [];
             generateBoard();
 
@@ -92,7 +92,7 @@
 
                 sudokuTable.innerHTML = '';
 
-                let board = generateNewBoard(randomTilesCount, size);
+                let board = generateNewBoard(tilesCount, size);
 
 
                 inputsMatrix = [];
@@ -372,7 +372,7 @@
                 
                 const size = 9;
 
-                randomTilesCount = Math.floor((size * size) * ((3 - difficulty + 1) * 0.25));
+                tilesCount = Math.floor((size * size) * ((3 - difficulty + 1) * 0.25));
 
                 generateBoard();
 
