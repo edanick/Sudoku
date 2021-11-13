@@ -68,7 +68,7 @@
 
     <script>
 
-        let isGithubPreview = window.origin == 'https://htmlpreview.github.io'
+        let isGithubPreview = window.origin == 'https://htmlpreview.github.io';
 
         
 
@@ -362,7 +362,9 @@
 
                 difficulty = this.value;
 
-                history.replaceState(null, null, `sudoku.html?difficulty=${difficulty}`);
+
+                window.location.href = window.location.href.replace(/difficulty=\d+/, `difficulty=${difficulty});
+                //history.replaceState(null, null, `sudoku.html?difficulty=${difficulty}`);
 
                 const size = 9;
 
