@@ -374,9 +374,13 @@
             }
 
             function changeDifficulty() {
+
+                window.alert("idk");
+                
+
                 difficulty = this.value;
 
-                history.replaceState(null, null, `sudoku.html?difficulty=${difficulty}`);
+                //history.replaceState(null, null, `sudoku.html?difficulty=${difficulty}`);
 
                 const size = 9;
 
