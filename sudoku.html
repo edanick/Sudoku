@@ -68,7 +68,7 @@
 
     <script>
 
-        window.alert("idk1");
+        
 
         //#region custom functions
 
@@ -376,12 +376,10 @@
 
             function changeDifficulty() {
 
-               
-                
 
                 difficulty = this.value;
 
-                //history.replaceState(null, null, `sudoku.html?difficulty=${difficulty}`);
+                history.replaceState(null, null, `sudoku.html?difficulty=${difficulty}`);
 
                 const size = 9;
 
