@@ -68,8 +68,11 @@
 
     <script>
 
+        let isGithubPreview = window.origin == 'https://htmlpreview.github.io'
 
-        let difficulty = parseInt(new URLSearchParams(new URL(window.location.search)).search.get('difficulty'));
+        
+
+        let difficulty = parseInt(new URLSearchParams((isGithubPreview ? new URL(window.location.search.substr(1)) : window.location).search ).get('difficulty'));
 
 
         let mobileMode = window.innerWidth <= 780;
