@@ -69,23 +69,7 @@
     <script>
 
 
-
-        //#region custom functions
-
-        function getParameterByName(name, url = window.location.href) {
-            name = name.replace(/[\[\]]/g, '\\$&');
-            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
-
-
-        //#endregion
-
-
-        let difficulty = parseInt(getParameterByName('difficulty'));
+        let difficulty = parseInt(new URLSearchParams(window.location.search).get('difficulty'));
 
 
         let mobileMode = window.innerWidth <= 780;
