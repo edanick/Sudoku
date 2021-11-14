@@ -68,6 +68,8 @@
 
     <script>
 
+        const redColor = '#B6170F';
+
         let isGithubPreview = window.origin == 'https://htmlpreview.github.io';
 
         
@@ -236,12 +238,8 @@
                     }
 
                     if (!input.disabled && input.value) {
-                        input.parentElement.style.background = '#B6170F';
-
-                        if (input.parentElement.style.background = '#B6170F') {
-                            input.style.color = "white";
-                        }
-
+                        input.parentElement.style.background = redColor;
+                        input.style.color = "white";
                     }
 
                 }
@@ -338,7 +336,7 @@
                 audio.play();
 
                 msgLabel.innerHTML = (valid ? 'Board solved!' : "Board invalid");
-                msgLabel.style.color = valid ? 'gray' : '#B6170F';
+                msgLabel.style.color = valid ? 'gray' : redColor;
 
             }
 
