@@ -69,6 +69,7 @@
     <script>
 
         const redColor = '#B6170F';
+        const grayColor = "rgb(77, 77, 77)";
 
         let isGithubPreview = window.origin == 'https://htmlpreview.github.io';
 
@@ -234,7 +235,7 @@
                     let input = inputsMatrix[pos[0]][pos[1]];
 
                     if (input.parentElement.style.background = "white") {
-                        input.style.color = "rgb(77, 77, 77)";
+                        input.style.color = grayColor;
                     }
 
                     if (!input.disabled && input.value) {
