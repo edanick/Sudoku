@@ -114,7 +114,8 @@ input[type='button'], button {
     padding: 14px;
     margin-top: 90px;
     height: 107px;
-    background-position-y: -130px;
+    background-size: 200%;
+    background-position-y: -170px;
     border: none;
 
 }
@@ -132,6 +133,7 @@ input[type='button'], button {
 {
     margin-top: 187px;
     height: 100px;
+    background-size: 200%;
     background-position-y: -170px;
     width: 215px;
     border: none;
@@ -263,7 +265,7 @@ h2
     {
         margin-top: 210px;
         height: 200px;
-        background-position-y: 40px;
+        background-size: 400%;
         background-position-x: -150px;
         width: 200px;
 
@@ -276,7 +278,7 @@ h2
         padding: 15px;
         margin-top: 127px;
         height: 90px;
-        background-position-y: 40px;
+        background-size: 400%;
         background-position-x: -150px;
         border: none;
 
